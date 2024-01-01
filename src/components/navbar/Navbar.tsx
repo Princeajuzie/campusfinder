@@ -225,6 +225,7 @@ function NavListMenu() {
 function ProfileMenu() {
   const [isMenuOpen, setIsMenuOpen] = React.useState(false);
   const {user,loading} = UseAuthStore()
+  
   const {UserData} = usePersist()
   
   const closeMenu = () => setIsMenuOpen(false);

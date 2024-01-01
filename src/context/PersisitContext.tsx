@@ -15,8 +15,8 @@ interface DocumentData {
 interface PersistInt {
   GenLoad?: boolean;
   setGenLoad?: React.Dispatch<React.SetStateAction<boolean>>;
-  UserData?: DocumentData,
-  setUserData?: React.Dispatch<React.SetStateAction<DocumentData>>;
+  UserData?: DocumentData; // Add this
+  setUserData?: React.Dispatch<React.SetStateAction<DocumentData>>; 
 }
 
 const PersistContext = createContext<PersistInt | undefined>(undefined);
@@ -28,7 +28,7 @@ export const PersistProvider = ({
 }) => {
   // const { user } = UseAuthStore();
   const [GenLoad, setGenLoad] = useState(true);
-  const [UserData, setUserData] = useState<DocumentData | undefined>(undefined);
+  const [UserData, setUserData] = useState<DocumentData >();
 
   useEffect(() => {
     // const uid =user && user.uid
@@ -66,13 +66,15 @@ export const PersistProvider = ({
       {children}
     </PersistContext.Provider>
   );
+  
 };
 
 
 export const usePersist =()=>{
-  const Persist = PersistContext;
+  const Persist =  useContext(PersistContext) 
   if(!Persist){
     throw new Error('you cant persist your user')
   }
-  return useContext(Persist) 
+  return Persist
 }
+
