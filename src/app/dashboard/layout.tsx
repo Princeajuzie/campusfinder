@@ -1,11 +1,11 @@
-"use client";
-import React, { Children } from "react";
+
+import React from "react";
 
 import NavbarWithMegaMenu from "@/components/navbar/Navbar";
-export default function layout({
+export default  function layout({
   children,
 }: {
-  children: React.ReactNode;
+  children: React.ReactNode
 }) {
   return (
     <>
