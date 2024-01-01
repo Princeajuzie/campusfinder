@@ -5,7 +5,6 @@ import { Auth } from "@/firebase/firebase";
 import UseAuthStore from "../app/store/store";
 import { db } from "@/firebase/firebase";
 import { getDoc, doc } from "firebase/firestore";
-import Loading from "@/utils/Loading";
 interface DocumentData {
   displayName: string;
   email: string;
