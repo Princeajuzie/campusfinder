@@ -2,12 +2,16 @@
 import React, { Children } from "react";
 
 import NavbarWithMegaMenu from "@/components/navbar/Navbar";
-export default function layout({ Children }: { Children: React.ReactNode }) {
+export default function layout({
+  children,
+}: {
+  children: React.ReactNode;
+}) {
   return (
     <>
       <NavbarWithMegaMenu />
 
-      {Children}
+      {children}
     </>
   );
 }
