@@ -35,7 +35,7 @@ import {
   UserCircleIcon,
 } from "@heroicons/react/24/solid";
 import UseAuthStore from "@/app/store/store";
- 
+import {usePersist} from "@/context/PersisitContext";
 declare module "@material-tailwind/react" {
   interface TypographyProps {
     placeholder?: string;
@@ -225,6 +225,7 @@ function NavListMenu() {
 function ProfileMenu() {
   const [isMenuOpen, setIsMenuOpen] = React.useState(false);
   const {user,loading} = UseAuthStore()
+  const {UserData} = usePersist()
   
   const closeMenu = () => setIsMenuOpen(false);
 
@@ -237,17 +238,14 @@ function ProfileMenu() {
           color="blue-gray"
           className="flex items-center gap-1 rounded-full py-0.5 pr-2 pl-0.5 lg:ml-auto"
         >
-          {loading ?
-          <div>loading..</div>
-          :
-          <Avatar
-            variant="circular"
-            size="sm"
-            alt="tania andrew"
-            className="border border-gray-900 p-0.5"
-            src={user && user.photoURL}
-          />
-          }
+     
+        <Avatar
+          variant="circular"
+          size="sm"
+          alt="tania andrew"
+          className="border border-gray-900 p-0.5"
+          src={UserData && UserData.photoURL}
+        />
           <ChevronDownIcon
             strokeWidth={2.5}
             className={`h-3 w-3 transition-transform ${

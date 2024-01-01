@@ -1,5 +1,6 @@
 "use client"
 import UseAuthStore from "../store/store";
+import {usePersist} from "@/context/PersisitContext"
 
 import Cookies from "js-cookie";
 
